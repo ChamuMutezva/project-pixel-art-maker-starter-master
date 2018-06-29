@@ -1,47 +1,38 @@
+//this is the table
+let canvas = document.getElementById('pixelCanvas');
 // Select color input
-// Select size input
-
+let color = document.getElementById('colorPicker');
 // When size is submitted by the user, call makeGrid()
-let height = document.getElementById("inputHeight");
-let width = document.getElementById("inputWidth");
-let color = document.getElementById("colorPicker");
-let canvas = document.getElementById("pixelCanvas");
-
-console.log(height.value);
-console.log(width.value);
-
-
 function makeGrid() {
+    // Select size input
+    let height = document.getElementById('inputHeight');
+    let width = document.getElementById('inputWidth');
 
-    // Your code goes here!
-    for(let r = 0; r < height.value; r++){
+    for (let r = 0; r < height.value; r++) {
         const row = canvas.insertRow(r);
-        for(let c = 0;c < width.value; c++){
-             row.insertCell(c);
-            //canvas.appendChild(row);
-           // canvas.appendChild(cell);
-            //cell.on("click", fillSquare);
+        for (let c = 0; c < width.value; c++) {
+            row.insertCell(c);
         }
-
     }
-    $("table").on("click", function(){
-        $(event.target).css("background-color", color.value);
+    //click on a square to change the color of a particular square
+    $('table').on('click', function (event) {
+        
+       //$(event.target).toggle(
+           $(event.target).css({'background-color': color.value});
+          // function(){$(event.target).removeAttr('style')}
+      // )          
+    
     })
-
-
 }
-
+//function to clear the table before creating a new one
 function clearGrid() {
     while (canvas.firstChild) {
         canvas.removeChild(canvas.firstChild);
     }
 }
-$("#button").on("click", function(event){
- event.preventDefault();
-  clearGrid() ;
-  console.log( "button clicked");
-  console.log(height.value);
-  console.log(width.value);
-  console.log(color.value);
-  makeGrid();
+
+$('#button').on('click', function (event) {
+    event.preventDefault();
+    clearGrid();
+    makeGrid();
 })
