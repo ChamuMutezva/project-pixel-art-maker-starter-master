@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    background-color: mediumaquamarine;
+    background: radial-gradient(mediumaquamarine, aqua,teal, turquoise);
   /* background-image: url("charmaine.png");
     background-repeat: no-repeat;*/
 }
@@ -43,4 +43,8 @@ td {
 
 input[type=number] {
     width: 6em;
+}
+#button:hover{
+    /*: aquamarine;*/
+    background-color: aquamarine;
 }
