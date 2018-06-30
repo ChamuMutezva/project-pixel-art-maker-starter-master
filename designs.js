@@ -15,13 +15,14 @@ function makeGrid() {
         }
     }
     //click on a square to change the color of a particular square
-    $('table').on('click', function (event) {
-        
-       //$(event.target).toggle(
-           $(event.target).css({'background-color': color.value});
-          // function(){$(event.target).removeAttr('style')}
-      // )          
-    
+    $('td').on('click', function (event) {             
+            color = $("#colorPicker").val();
+            if ($(this).attr('style')) {
+                $(this).removeAttr('style');
+            }
+            else {
+                $(this).attr('style', 'background-color: ' + color);
+            }        
     })
 }
 //function to clear the table before creating a new one
